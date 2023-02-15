@@ -1,19 +1,422 @@
 /* Animation 1: Falling
    Bolden falder konstant fra oven. */
 .falling {
-    animation-name: falling;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+  animation-name: falling;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
 @keyframes falling {
+  0% {
+    transform: translate(0, -300%);
+  }
+
+  100% {
+    transform: translate(0, 300%);
+  }
+}
+
+/* Animation 2: Bouncing
+   Bolden hopper op og ned. 
+    det ser mest realistisk ud ved at bruge ease-in kombineret 
+    med animation-direction: alternate og så holde sig til 0% og 100% i keyframes.
+    Bruger man 0%, 50% og 100% i keyframes kombineret med ease-in-out 
+    uden animation-direction: alternate, bliver "bouncet" underligt
+*/
+
+.bouncing {
+  animation-name: bouncing;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes bouncing {
+  0% {
+    transform: translate(0, -45%);
+  }
+
+  100% {
+    transform: translate(0, 145%);
+  }
+}
+
+/* Animation 3: Drop
+    Bolden falder ned og bliver liggende. */
+.drop {
+  animation-name: drop;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes drop {
+  0% {
+    transform: translate(0, -300%);
+  }
+
+  100% {
+    transform: translate(0, 142%);
+  }
+}
+
+/* Animation 4: Pattern 
+    Bolden bevæger sig i et fast mønster. */
+.pattern {
+  animation-name: pattern;
+  animation-duration: 5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pattern {
+  0% {
+    transform: translate(150%, 10%);
+  }
+
+  25% {
+    transform: translate(-10%, 145%);
+  }
+
+  50% {
+    transform: translate(-150%, 10%);
+  }
+
+  75% {
+    transform: translate(10%, -145%);
+  }
+
+  100% {
+    transform: translate(150%, 10%);
+  }
+}
+
+/* Animation 5: Zoom out 
+    Bolden bliver lillebitte. */
+
+.zoom_out {
+  animation-name: zoom_out;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes zoom_out {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(0.05);
+  }
+}
+
+/* Animation 6: Zoom in 
+    Bolden bliver kæmpestor. */
+
+.zoom_in {
+  animation-name: zoom_in;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes zoom_in {
+  0% {
+    transform: scale(0.05);
+  }
+
+  100% {
+    transform: scale(7.5);
+  }
+}
+
+/* Animation 7: Fade out 
+    Bolden fader langsomt væk.*/
+
+.fade_out {
+  animation-name: fade_out;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade_out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Animation 8: Fade in 
+    Bolden bliver langsomt synlig.*/
+
+.fade_in {
+  animation-name: fade_in;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade_in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Animation 9: Rotate 
+    Bolden roterer.*/
+
+.rotation {
+  animation-name: rotate;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation 10: Rotate 2 
+    Bolden drejer rundt om et punkt uden for sig selv.*/
+
+.rotation2 {
+  animation-name: rotate2;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotate2 {
+  0% {
+    transform: rotate(0deg) translate(-145%);
+  }
+
+  100% {
+    transform: rotate(360deg) translate(-145%);
+    /* translate(-145%) - hvorfor i alverden skal det være på samme linje for at virke? */
+  }
+}
+
+/* Animation 11: Glow
+Bolden "lyser op" - brug en filter-effekt. */
+
+.glow {
+  animation-name: glow;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+
+@keyframes glow {
+  0% {
+    filter: drop-shadow(1px 1px 0px yellow);
+  }
+
+  100% {
+    filter: drop-shadow(4px 4px 10px yellow);
+  }
+}
+
+/* Animation 12: Blur to Gray
+Bolden triller fra side til side (kombinér to transform funktioner), 
+og den bliver gråtone og sløret (kombinér to filter-effekter). */
+
+.blur_to_gray {
+  animation-name: blur_to_gray;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes blur_to_gray {
+  0% {
+    transform: translate(-145%, 0);
+  }
+
+  100% {
+    transform: translate(145%, 0);
+    filter: grayscale(100%) blur(2px);
+  }
+}
+
+/* Animation 13: Pulse 
+    Bolden "pulserer" stille og roligt for at gøre opmærksom på at man skal klikke på den. */
+
+.pulse {
+  animation-name: pulse;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Animation 14: overshoot 
+    Bolden Bolden triller lidt for langt, før den ender på rette plads. */
+
+/* .overshoot {
+    animation-name: overshoot;
+    animation-duration: 1s;
+    animation-timing-function: ease-in;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    }
+
+@keyframes overshoot {
     0% {
-        transform: translate(0,-300%);
+        transform: translate(-145%, 0);
+    }
+
+    50% {
+        transform: translate(210%, 0);
     }
 
     100% {
-        transform: translate(0,300%);
+        transform: translate(145%, 0);
     }
-    
+} */
+
+/* Animation 14: overshoot done with cubic-bezier */
+.overshoot {
+  animation-name: overshoot;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(1, 0.75, 0.95, 1.75);
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 }
+
+@keyframes overshoot {
+  0% {
+    transform: translate(-145%, 0);
+  }
+
+  100% {
+    transform: translate(145%, 0);
+  }
+}
+
+/* Animation 15: Bounce 
+    Bolden falder ned, hopper lidt op igen og igen, indtil den falder til ro. */
+
+.bounce {
+  animation-name: bounce;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate(-145%, -140%) rotate(0deg);
+  }
+
+  10% {
+    transform: translate(-115%, 140%) rotate(60deg);
+  }
+
+  20% {
+    transform: translate(-85%, -85%) rotate(120deg);
+  }
+
+  30% {
+    transform: translate(-55%, 140%) rotate(180deg);
+  }
+
+  40% {
+    transform: translate(-25%, -25%) rotate(240deg);
+  }
+
+  50% {
+    transform: translate(15%, 140%) rotate(300deg);
+  }
+
+  60% {
+    transform: translate(45%, 35%) rotate(360deg);
+  }
+
+  70% {
+    transform: translate(75%, 140%) rotate(420deg);
+  }
+
+  80% {
+    transform: translate(105%, 95%) rotate(480deg);
+  }
+
+  90% {
+    transform: translate(135%, 140%) rotate(540deg);
+  }
+
+  100% {
+    transform: translate(150%, 140%) rotate(600deg);
+  }
+}
+
+/* Animation 16: squash
+Bolden bevæger sig i et fast mønster, ligesom i nr. 4, 
+men hver gang den rammer en kant, bliver den lidt mast. */
+
+.squash {
+  animation-name: squash;
+  animation-duration: 2s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+
+@keyframes squash {
+  0% {
+    transform: translate(165%, 0%) scale(0.75, 1) rotate(0deg);
+  }
+
+  25% {
+    transform: translate(0%, 160%) scale(1, 0.75) rotate(90deg);
+  }
+
+  50% {
+    transform: translate(-170%, 0%) scale(0.75, 1) rotate(180deg);
+  }
+
+  75% {
+    transform: translate(0%, -160%) scale(1, 0.75) rotate(270deg);
+  }
+
+  100% {
+    transform: translate(165%, 0%) scale(0.75, 1) rotate(360deg);
+  }
+}
+
