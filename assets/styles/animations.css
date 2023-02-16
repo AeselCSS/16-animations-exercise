@@ -402,17 +402,32 @@ men hver gang den rammer en kant, bliver den lidt mast. */
   0% {
     transform: translate(165%, 0%) scale(0.75, 1) rotate(0deg);
   }
+  2% {
+   transform: translate(165%, 0%) scale(1, 1) rotate(7.2deg);
+  }
 
   25% {
     transform: translate(0%, 160%) scale(1, 0.75) rotate(90deg);
+  }
+
+  27% {
+   transform: translate(0%, 160%) scale(1, 1) rotate(97.2deg);
   }
 
   50% {
     transform: translate(-170%, 0%) scale(0.75, 1) rotate(180deg);
   }
 
+  52% {
+   transform: translate(-170%, 0%) scale(1, 1) rotate(187.2deg);
+  }
+
   75% {
     transform: translate(0%, -160%) scale(1, 0.75) rotate(270deg);
+  }
+
+  77% {
+   transform: translate(0%, -160%) scale(1, 1) rotate(277.2deg);
   }
 
   100% {
